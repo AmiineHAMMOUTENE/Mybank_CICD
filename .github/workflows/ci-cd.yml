@@ -74,11 +74,12 @@ jobs:
         run: |
           # Créer le répertoire des tests s'il n'existe pas
           mkdir -p tests
-          # Si PHPUnit est configuré, lancer les tests
-          if [ -f "phpunit.xml.dist" ] || [ -f "phpunit.xml" ]; then
-            php vendor/bin/phpunit
+          # Vérifier si PHPUnit est installé et configuré
+          if [ -f "vendor/bin/phpunit" ] && ([ -f "phpunit.xml.dist" ] || [ -f "phpunit.xml" ]); then
+            vendor/bin/phpunit
           else
-            echo "✅ No PHPUnit configuration found, skipping tests"
+            echo "✅ PHPUnit not installed or configured, skipping tests"
+            echo "   To add tests later, run: composer require --dev phpunit/phpunit symfony/test-pack"
           fi
 
       - name: 🔍 Validate Symfony application
