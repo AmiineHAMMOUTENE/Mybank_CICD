@@ -171,7 +171,8 @@ jobs:
         run: |
           cd api
           # Exécuter les migrations dans le conteneur
-          docker compose exec -T backend php bin/console doctrine:migrations:migrate --no-interaction
+          docker compose exec -T backend php /var/www/project/bin/console doctrine:migrations:migrate --no-interaction
+
 
       - name: 🧪 Test API endpoints
         run: |
