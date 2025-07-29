@@ -7,8 +7,10 @@ COPY . project
 WORKDIR /var/www/project
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-# Install PHP dependencies
-RUN composer install --no-dev --optimize-autoloader
+# Install PHP dependencies (with dev dependencies for MakerBundle)
+RUN composer install --optimize-autoloader
+# Create .env file if it doesn't exist
+RUN if [ ! -f .env ]; then cp .env .env || echo "APP_ENV=prod" > .env; fi
 COPY vhosts.conf /etc/apache2/sites-enabled
 RUN /etc/init.d/apache2 restart
 RUN mkdir -p var/cache var/log && chmod -R 777 var
