@@ -158,20 +158,20 @@ jobs:
           
           # Retourner au dossier api et démarrer les services
           cd ../api
-          docker-compose up -d --build
+          docker compose up -d --build
           
           # Attendre que les services soient prêts
           echo "⏳ Waiting for services to be ready..."
           sleep 30
           
           # Vérifier que les services sont en cours d'exécution
-          docker-compose ps
+          docker compose ps
 
       - name: 🗄️ Setup database in Docker
         run: |
           cd api
           # Exécuter les migrations dans le conteneur
-          docker-compose exec -T backend php bin/console doctrine:migrations:migrate --no-interaction
+          docker compose exec -T backend php bin/console doctrine:migrations:migrate --no-interaction
 
       - name: 🧪 Test API endpoints
         run: |
@@ -207,15 +207,15 @@ jobs:
         run: |
           cd api
           echo "🔍 Backend logs:"
-          docker-compose logs backend
+          docker compose logs backend
           echo "🔍 Database logs:"
-          docker-compose logs database
+          docker compose logs database
 
       - name: 🛑 Stop Docker services
         if: always()
         run: |
           cd api
-          docker-compose down -v
+          docker compose down -v
 
   # Job 4: Build et Push Docker Images
   docker-build:
@@ -242,7 +242,7 @@ jobs:
       - name: 🏗️ Build Docker images
         run: |
           cd api
-          docker-compose build
+          docker compose build
 
       - name: 🏷️ Tag Docker images
         run: |
@@ -299,7 +299,7 @@ jobs:
           echo ""
           echo "To deploy manually:"
           echo "1. Pull images: docker pull mybank/backend:latest && docker pull mybank/frontend:latest"
-          echo "2. Run: docker-compose -f docker-compose.prod.yml up -d"
+          echo "2. Run: docker compose -f docker compose.prod.yml up -d"
 
       # Déploiement automatique (à décommenter si serveur disponible)
       # - name: 🔑 Setup SSH
@@ -313,7 +313,7 @@ jobs:
       #   run: |
       #     ssh -o StrictHostKeyChecking=no ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} '
       #       cd /path/to/mybank &&
-      #       docker-compose pull &&
-      #       docker-compose up -d --remove-orphans &&
+      #       docker compose pull &&
+      #       docker compose up -d --remove-orphans &&
       #       docker system prune -f
       #     '
