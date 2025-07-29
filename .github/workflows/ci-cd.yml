@@ -107,6 +107,11 @@ jobs:
         working-directory: ./front
         run: npm ci
 
+      - name: 📝 Create .env.local for build
+        working-directory: ./front
+        run: |
+          echo "NEXT_PUBLIC_API_BASE_URL=http://localhost:8082/api" > .env.local
+
       - name: 🏗️ Build frontend
         working-directory: ./front
         run: npm run build
@@ -146,6 +151,12 @@ jobs:
       - name: 🚀 Start services with Docker Compose
         run: |
           cd api
+          # Créer le fichier .env.local pour le frontend
+          cd ../front
+          echo "NEXT_PUBLIC_API_BASE_URL=http://localhost:8082/api" > .env.local
+          
+          # Retourner au dossier api et démarrer les services
+          cd ../api
           docker-compose up -d --build
           
           # Attendre que les services soient prêts
