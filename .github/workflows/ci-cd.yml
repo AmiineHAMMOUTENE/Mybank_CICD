@@ -249,27 +249,28 @@ jobs:
         run: |
           # Tagger les images pour Docker Hub
           BRANCH_NAME=${GITHUB_REF#refs/heads/}
-          docker tag api-backend mybank/backend:$BRANCH_NAME
-          docker tag api-backend mybank/backend:latest
+          docker tag api-backend aminehammoutene/mybank-backend:$BRANCH_NAME
+          docker tag api-backend aminehammoutene/mybank-backend:latest
           
-          cd ./front
-          docker build -t mybank/frontend:$BRANCH_NAME -t mybank/frontend:latest .
+          # Build frontend image depuis la racine
+          docker build -t aminehammoutene/mybank-frontend:$BRANCH_NAME -t aminehammoutene/mybank-frontend:latest ./front
 
       - name: 📤 Push to Docker Hub
         if: env.DOCKER_USERNAME != '' && env.DOCKER_PASSWORD != ''
+        continue-on-error: true
         run: |
           BRANCH_NAME=${GITHUB_REF#refs/heads/}
-          docker push mybank/backend:$BRANCH_NAME
-          docker push mybank/backend:latest
-          docker push mybank/frontend:$BRANCH_NAME
-          docker push mybank/frontend:latest
+          docker push aminehammoutene/mybank-backend:$BRANCH_NAME
+          docker push aminehammoutene/mybank-backend:latest
+          docker push aminehammoutene/mybank-frontend:$BRANCH_NAME
+          docker push aminehammoutene/mybank-frontend:latest
 
       - name: 💾 Save Docker images as artifacts
         if: env.DOCKER_USERNAME == '' || env.DOCKER_PASSWORD == ''
         run: |
           mkdir -p docker-images
-          docker save mybank/backend:latest | gzip > docker-images/backend.tar.gz
-          docker save mybank/frontend:latest | gzip > docker-images/frontend.tar.gz
+          docker save aminehammoutene/mybank-backend:latest | gzip > docker-images/backend.tar.gz
+          docker save aminehammoutene/mybank-frontend:latest | gzip > docker-images/frontend.tar.gz
 
       - name: 📦 Upload Docker images artifacts
         if: env.DOCKER_USERNAME == '' || env.DOCKER_PASSWORD == ''
@@ -299,7 +300,7 @@ jobs:
           echo "📦 Images are ready for production deployment"
           echo ""
           echo "To deploy manually:"
-          echo "1. Pull images: docker pull mybank/backend:latest && docker pull mybank/frontend:latest"
+          echo "1. Pull images: docker pull aminehammoutene/mybank-backend:latest && docker pull aminehammoutene/mybank-frontend:latest"
           echo "2. Run: docker compose -f docker compose.prod.yml up -d"
 
       # Déploiement automatique (à décommenter si serveur disponible)
