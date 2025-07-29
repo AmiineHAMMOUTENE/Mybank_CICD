@@ -252,7 +252,7 @@ jobs:
           docker tag api-backend mybank/backend:$BRANCH_NAME
           docker tag api-backend mybank/backend:latest
           
-          cd ../front
+          cd ./front
           docker build -t mybank/frontend:$BRANCH_NAME -t mybank/frontend:latest .
 
       - name: 📤 Push to Docker Hub
