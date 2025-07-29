@@ -249,8 +249,8 @@ jobs:
         run: |
           # Tagger les images pour Docker Hub
           BRANCH_NAME=${GITHUB_REF#refs/heads/}
-          docker tag api-backend-1 mybank/backend:$BRANCH_NAME
-          docker tag api-backend-1 mybank/backend:latest
+          docker tag api-backend mybank/backend:$BRANCH_NAME
+          docker tag api-backend mybank/backend:latest
           
           cd ../front
           docker build -t mybank/frontend:$BRANCH_NAME -t mybank/frontend:latest .
