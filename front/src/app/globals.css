@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  background-color: #f8fafc;
+}
+
+/* MyBank Color Palette */
+:root {
+  --mybank-emerald: #59e5a9;
+  --mybank-black: #000000;
+  --mybank-dark-blue: #14213d;
+  --mybank-orange: #fca311;
+  --mybank-red: #ec0b43;
+  --mybank-slate-900: #0f172a;
+  --mybank-slate-800: #1e293b;
+  --mybank-slate-700: #334155;
+  --mybank-slate-600: #475569;
+  --mybank-slate-500: #64748b;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 160 84% 63%; /* MyBank Emerald */
+    --primary-foreground: 0 0% 0%; /* MyBank Black */
+    --secondary: 210 40% 16%; /* MyBank Dark Blue */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 160 84% 63%; /* MyBank Emerald */
+    --accent-foreground: 0 0% 0%;
+    --destructive: 348 83% 47%; /* MyBank Red */
+    --destructive-foreground: 0 0% 98%;
+    --warning: 38 92% 50%; /* MyBank Orange */
+    --warning-foreground: 0 0% 0%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 160 84% 63%; /* MyBank Emerald */
+    --chart-1: 160 84% 63%; /* MyBank Emerald */
+    --chart-2: 210 40% 16%; /* MyBank Dark Blue */
+    --chart-3: 38 92% 50%; /* MyBank Orange */
+    --chart-4: 348 83% 47%; /* MyBank Red */
+    --chart-5: 0 0% 0%; /* MyBank Black */
+    --radius: 0.75rem;
+  }
+  
+  .dark {
+    --background: 210 40% 16%; /* MyBank Dark Blue */
+    --foreground: 0 0% 98%;
+    --card: 210 40% 16%;
+    --card-foreground: 0 0% 98%;
+    --popover: 210 40% 16%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 160 84% 63%; /* MyBank Emerald */
+    --primary-foreground: 0 0% 0%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 160 84% 63%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 348 83% 47%;
+    --destructive-foreground: 0 0% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 0%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 160 84% 63%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom MyBank Components */
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-emerald-400 to-emerald-500 text-slate-900 font-semibold px-6 py-3 rounded-lg hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 shadow-lg hover:shadow-xl;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .btn-secondary {
+    @apply bg-slate-700 text-white font-medium px-6 py-3 rounded-lg hover:bg-slate-600 transition-all duration-200 shadow-md hover:shadow-lg;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .card-modern {
+    @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-200 border border-gray-100;
+  }
+  
+  .input-modern {
+    @apply w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-transparent transition-all duration-200;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-emerald-400 to-emerald-600 bg-clip-text text-transparent;
+  }
+  
+  .heading-primary {
+    font-family: 'Montserrat', sans-serif;
+    @apply text-3xl font-bold text-gray-800;
+  }
+  
+  .heading-secondary {
+    font-family: 'Montserrat', sans-serif;
+    @apply text-xl font-semibold text-gray-700;
+  }
+}

@@ -1,0 +1,182 @@
+# ===========================================
+# MyBank - GitIgnore Configuration
+# ===========================================
+
+# ===========================================
+# BACKEND - Symfony/PHP
+# ===========================================
+
+# Vendor directory
+/api/vendor/
+
+# Environment files
+/api/.env.local
+/api/.env.local.php
+/api/.env.*.local
+
+# Cache and logs
+/api/var/cache/
+/api/var/log/
+/api/var/sessions/
+
+# Database
+/api/var/data.db
+
+# Symfony specific
+/api/public/bundles/
+/api/var/
+/api/.phpunit.result.cache
+/api/phpunit.xml
+
+# Composer
+/api/composer.phar
+
+# ===========================================
+# FRONTEND - React/Next.js
+# ===========================================
+
+# Dependencies
+/front/node_modules/
+/front/.pnp
+/front/.pnp.js
+
+# Production build
+/front/.next/
+/front/out/
+/front/build/
+/front/dist/
+
+# Environment files
+/front/.env
+/front/.env.local
+/front/.env.development.local
+/front/.env.test.local
+/front/.env.production.local
+
+# Logs
+/front/npm-debug.log*
+/front/yarn-debug.log*
+/front/yarn-error.log*
+
+# Runtime data
+/front/pids
+/front/*.pid
+/front/*.seed
+/front/*.pid.lock
+
+# Coverage directory used by tools like istanbul
+/front/coverage/
+/front/.nyc_output
+
+# ===========================================
+# DOCKER & DEVOPS
+# ===========================================
+
+# Docker volumes
+/docker-data/
+/mysql-data/
+
+# Production environment
+/.env.prod
+
+# Deployment logs
+/deploy.log
+
+# ===========================================
+# IDE & EDITORS
+# ===========================================
+
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# PhpStorm
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# ===========================================
+# SYSTEM FILES
+# ===========================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# ===========================================
+# TEMPORARY & BACKUP FILES
+# ===========================================
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+
+# Log files
+*.log
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+
+# ===========================================
+# TESTING & COVERAGE
+# ===========================================
+
+# PHPUnit
+/api/tests/_output/
+/api/tests/_support/_generated/
+
+# Jest
+/front/coverage/
+/front/.jest/
+
+# ===========================================
+# SECURITY & SENSITIVE DATA
+# ===========================================
+
+# SSL certificates
+*.pem
+*.key
+*.crt
+
+# Database dumps
+*.sql
+*.dump
+
+# API keys and secrets (just in case)
+secrets.json
+config/secrets/
