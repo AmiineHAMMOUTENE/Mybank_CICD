@@ -11,7 +11,7 @@ MyBank est une application web moderne de gestion bancaire développée avec **R
 - **API REST** : Backend Symfony avec API complète
 - **Interface moderne** : Design responsive avec Tailwind CSS
 
-## 🛠️ Stack Technique
+##  Stack Technique
 
 ### Frontend
 - **Next.js 15** (React 19)
