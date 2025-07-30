@@ -1,8 +1,8 @@
-# 🏦 MyBank - Application de Gestion Bancaire
+# MyBank - Application de Gestion Bancaire
 
 MyBank est une application web moderne de gestion bancaire développée avec **React/Next.js** pour le frontend et **Symfony** pour le backend API.
 
-## 🚀 Fonctionnalités
+## Fonctionnalités
 
 - **Authentification** : Système de connexion/inscription sécurisé
 - **Gestion des opérations** : Créer, modifier, supprimer des transactions
@@ -40,7 +40,7 @@ MyBank est une application web moderne de gestion bancaire développée avec **R
 - **PHP 8.2+** et **Composer**
 - **Git**
 
-## 🚀 Installation et Démarrage
+##  Installation et Démarrage
 
 ### 1. Cloner le projet
 
@@ -138,7 +138,7 @@ npm install
 npm run dev
 ```
 
-## 🔄 CI/CD avec GitHub Actions
+##  CI/CD avec GitHub Actions
 
 Le projet inclut un pipeline CI/CD complet configuré avec GitHub Actions.
 
@@ -158,7 +158,7 @@ DEPLOY_SSH_KEY=cle-ssh-privee (optionnel)
 
 Le workflow `.github/workflows/ci-cd.yml` effectue automatiquement :
 
-#### 🔍 **Intégration Continue (CI)**
+####  **Intégration Continue (CI)**
 1. **Build Backend** : Installation des dépendances Symfony
 2. **Build Frontend** : Installation et build Next.js
 3. **Tests Backend** : Exécution des tests PHPUnit
@@ -166,7 +166,7 @@ Le workflow `.github/workflows/ci-cd.yml` effectue automatiquement :
 5. **Validation API** : Tests d'intégration avec Docker Compose
 6. **Tests CRUD** : Validation des endpoints API
 
-#### 🚀 **Déploiement Continu (CD)**
+####  **Déploiement Continu (CD)**
 1. **Build Images Docker** : Construction des images optimisées
 2. **Push Docker Hub** : Publication sur Docker Hub
 3. **Déploiement** : Déploiement automatique (optionnel)
@@ -190,7 +190,7 @@ docker-compose -f docker-compose.prod.yml ps
 docker-compose -f docker-compose.prod.yml logs -f
 ```
 
-## 🧪 Tests
+##  Tests
 
 ### Backend (PHPUnit)
 ```bash
@@ -221,7 +221,7 @@ npm run test:coverage
 docker-compose -f docker-compose.test.yml up --build --abort-on-container-exit
 ```
 
-## 📦 Déploiement
+##  Déploiement
 
 ### Déploiement Automatisé
 
@@ -257,7 +257,7 @@ scp -r . user@server:/path/to/mybank/
 ssh user@server "cd /path/to/mybank && ./deploy.sh prod"
 ```
 
-## 🔧 Configuration Avancée
+##  Configuration Avancée
 
 ### Variables d'Environnement
 
@@ -294,46 +294,8 @@ server {
 }
 ```
 
-## 🐛 Dépannage
 
-### Problèmes Courants
-
-#### Base de données
-```bash
-# Réinitialiser la base de données
-docker-compose exec backend php bin/console doctrine:database:drop --force
-docker-compose exec backend php bin/console doctrine:database:create
-docker-compose exec backend php bin/console doctrine:migrations:migrate
-```
-
-#### Cache Symfony
-```bash
-# Vider le cache
-docker-compose exec backend php bin/console cache:clear
-```
-
-#### Problèmes Docker
-```bash
-# Nettoyer Docker
-docker system prune -a
-docker-compose down -v
-docker-compose up -d --build
-```
-
-### Logs
-
-```bash
-# Logs backend
-docker-compose logs -f backend
-
-# Logs frontend
-docker-compose logs -f frontend
-
-# Logs base de données
-docker-compose logs -f database
-```
-
-## 📚 Documentation API
+##  Documentation API
 
 L'API est documentée automatiquement avec API Platform :
 - **Documentation** : http://localhost:8082/api/docs
@@ -351,41 +313,5 @@ POST   /api/login               # Connexion
 POST   /api/logout              # Déconnexion
 ```
 
-## 🤝 Contribution
 
-1. **Fork** le projet
-2. **Créer** une branche feature (`git checkout -b feature/amazing-feature`)
-3. **Commit** vos changements (`git commit -m 'Add amazing feature'`)
-4. **Push** vers la branche (`git push origin feature/amazing-feature`)
-5. **Ouvrir** une Pull Request
-
-### Standards de Code
-
-- **Backend** : PSR-12, PHPStan level 8
-- **Frontend** : ESLint + Prettier
-- **Tests** : Couverture minimale 80%
-- **Commits** : Convention Conventional Commits
-
-## 📄 Licence
-
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
-
-## 🙏 Remerciements
-
-- **Symfony** pour le framework backend
-- **Next.js** pour le framework frontend
-- **Docker** pour la containerisation
-- **GitHub Actions** pour le CI/CD
-
----
-
-## 🆘 Support
-
-Pour toute question ou problème :
-- **Issues** : Ouvrir une issue sur GitHub
-- **Discussions** : Utiliser les discussions GitHub
-- **Email** : contact@mybank.com
-
----
-
-**MyBank** - Gérez vos finances en toute simplicité ! 🏦✨
+**MyBank** 
