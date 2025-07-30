@@ -33,7 +33,7 @@ MyBank est une application web moderne de gestion bancaire développée avec **R
 - **PHPUnit** (tests backend)
 - **Jest** (tests frontend)
 
-## 📋 Prérequis
+##  Prérequis
 
 - **Docker** et **Docker Compose**
 - **Node.js 18+** et **npm**
