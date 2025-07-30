@@ -1,11 +1,6 @@
-# ===========================================
-# MyBank - GitIgnore Configuration
-# ===========================================
 
-# ===========================================
+
 # BACKEND - Symfony/PHP
-# ===========================================
-
 # Vendor directory
 /api/vendor/
 
@@ -31,9 +26,7 @@
 # Composer
 /api/composer.phar
 
-# ===========================================
 # FRONTEND - React/Next.js
-# ===========================================
 
 # Dependencies
 /front/node_modules/
@@ -68,9 +61,7 @@
 /front/coverage/
 /front/.nyc_output
 
-# ===========================================
 # DOCKER & DEVOPS
-# ===========================================
 
 # Docker volumes
 /docker-data/
@@ -82,9 +73,7 @@
 # Deployment logs
 /deploy.log
 
-# ===========================================
 # IDE & EDITORS
-# ===========================================
 
 # VSCode
 .vscode/
@@ -108,9 +97,7 @@
 *.swo
 *~
 
-# ===========================================
 # SYSTEM FILES
-# ===========================================
 
 # macOS
 .DS_Store
@@ -133,9 +120,7 @@ $RECYCLE.BIN/
 .directory
 .Trash-*
 
-# ===========================================
 # TEMPORARY & BACKUP FILES
-# ===========================================
 
 # Temporary files
 *.tmp
@@ -152,9 +137,7 @@ $RECYCLE.BIN/
 *.tar.gz
 *.rar
 
-# ===========================================
 # TESTING & COVERAGE
-# ===========================================
 
 # PHPUnit
 /api/tests/_output/
@@ -164,9 +147,7 @@ $RECYCLE.BIN/
 /front/coverage/
 /front/.jest/
 
-# ===========================================
 # SECURITY & SENSITIVE DATA
-# ===========================================
 
 # SSL certificates
 *.pem
